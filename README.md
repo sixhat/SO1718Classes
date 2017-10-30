@@ -6,5 +6,5 @@ Remember that classes use Slack for communication
 
 Classes are in room 63 
 
-Thursdays: 19h
+Thursdays: 19h  
 Fridays: 21h
