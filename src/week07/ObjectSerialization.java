@@ -29,14 +29,14 @@ public class ObjectSerialization implements Serializable {
 	}
 
 	public static void main(String[] args) {
-		ObjectSerialization ob = new ObjectSerialization("David Sousa-Rodrigues");
-		System.out.println(String.format("%1$13s = %2$20s", "Before Saving", ob));
+		ObjectSerialization objectToSendToDisk = new ObjectSerialization("David Sousa-Rodrigues");
+		System.out.println(String.format("%1$13s = %2$20s", "Before Saving", objectToSendToDisk));
 
 		try {
 
 			// let's write the object to file
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("ClassData.dat"));
-			out.writeObject(ob);
+			out.writeObject(objectToSendToDisk);
 			out.close();
 
 			// Let's read the Object from file
