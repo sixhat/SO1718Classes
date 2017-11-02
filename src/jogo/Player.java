@@ -1,22 +1,12 @@
 package jogo;
 
-import java.util.Scanner;
-
 public class Player {
 	private String nome;
 	private int numTentativas = 0;
 	private long tempo;
 
-	public Player() {
-
-	}
-
-	public void getName() {
-		Scanner in = new Scanner(System.in);
-		System.out.print("Nome? ");
-		nome = in.nextLine();
-//		in.close();
-		System.out.println("Welcome " + nome);
+	public Player(String name) {
+		this.setNome(name);
 	}
 
 	public int getTentativas() {
@@ -35,10 +25,18 @@ public class Player {
 		tempo = tempo2;
 
 	}
+
 	@Override
 	public String toString() {
-	
-		return nome+" : "+numTentativas+", "+tempo;
+		return getNome() + " : " + numTentativas + ", " + tempo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 }
