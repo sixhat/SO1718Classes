@@ -36,6 +36,7 @@ public class BinaryFileIO {
 			System.out.println(in.readUTF());
 			System.out.println(in.readInt());
 			System.out.println(in.readDouble());
+			in.close();
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

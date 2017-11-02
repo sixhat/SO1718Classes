@@ -1,7 +1,6 @@
 package week07;
 
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.PriorityQueue;
 
 /**
