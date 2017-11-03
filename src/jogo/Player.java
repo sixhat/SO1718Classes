@@ -1,5 +1,7 @@
 package jogo;
 
+import java.io.Serializable;
+
 /**
  * This is the Player class. It is the object that holds the characteristics of
  * each player.
@@ -7,7 +9,12 @@ package jogo;
  * @author "David Sousa-Rodrigues"
  *
  */
-public class Player {
+public class Player implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4120063933855521706L;
+	
 	private String nome;
 	private int numTentativas = 0;
 	private long tempo;
@@ -21,7 +28,7 @@ public class Player {
 	}
 
 	/**
-	 * Increments the number of trys of the player.
+	 * Increments the number of tries of the player.
 	 */
 	public void incTentativas() {
 		this.numTentativas++;

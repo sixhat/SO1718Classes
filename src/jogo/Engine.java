@@ -1,5 +1,12 @@
 package jogo;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,6 +25,7 @@ public class Engine {
 	private long startTime;
 	private long finalTime;
 	private Scanner in;
+	private TopTen tt;
 
 	public Engine() {
 		this.rng = new Random();
@@ -62,6 +70,46 @@ public class Engine {
 
 		System.out.println(p1);
 
+		File fichTopTen = new File("topten.top");
+			
+		if (fichTopTen.exists()) {
+			try {
+				ObjectInputStream in = new ObjectInputStream(new FileInputStream(fichTopTen));
+				tt = (TopTen) in.readObject();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		} else {
+			tt = new TopTen();
+		}
+		
+		
+		tt.addPlayer(p1);
+		
+		tt.printSorted();
+		
+		try {
+			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fichTopTen));
+			out.writeObject(tt);
+			out.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		
 		in.close();
 		// Save Top 10
 	}

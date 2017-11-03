@@ -8,7 +8,8 @@ public class TopTen implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -5620132132506050602L;
+	
 	
 	private ArrayList<Player> players;
 	
@@ -21,6 +22,9 @@ public class TopTen implements Serializable{
 	} 
 	
 	public void printSorted() {
+		System.out.println("======================================");
+		System.out.println("|| TOP TEN                          ||");
+		System.out.println("======================================");
 		for (Player player : players) {
 			System.out.println(player);
 		}
