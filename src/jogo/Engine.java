@@ -3,6 +3,13 @@ package jogo;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * This is the main entry point of the Game. The Engine controls the mechanics
+ * of the game.
+ * 
+ * @author "David Sousa-Rodrigues"
+ *
+ */
 public class Engine {
 
 	private Random rng;
@@ -23,6 +30,9 @@ public class Engine {
 		startTime = System.currentTimeMillis();
 	}
 
+	/**
+	 * This class runs a new Game for the Player initialized in the constructor.
+	 */
 	public void newGame() {
 		// Sortear um número
 

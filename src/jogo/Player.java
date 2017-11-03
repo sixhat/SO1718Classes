@@ -1,5 +1,12 @@
 package jogo;
 
+/**
+ * This is the Player class. It is the object that holds the characteristics of
+ * each player.
+ * 
+ * @author "David Sousa-Rodrigues"
+ *
+ */
 public class Player {
 	private String nome;
 	private int numTentativas = 0;
@@ -13,6 +20,9 @@ public class Player {
 		return numTentativas;
 	}
 
+	/**
+	 * Increments the number of trys of the player.
+	 */
 	public void incTentativas() {
 		this.numTentativas++;
 	}
