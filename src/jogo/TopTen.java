@@ -2,6 +2,7 @@ package jogo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TopTen implements Serializable{
 
@@ -25,9 +26,22 @@ public class TopTen implements Serializable{
 		System.out.println("======================================");
 		System.out.println("|| TOP TEN                          ||");
 		System.out.println("======================================");
-		for (Player player : players) {
-			System.out.println(player);
+		
+		Collections.sort(players);
+		
+		ArrayList<Player> aRemover = new ArrayList<Player>();
+		
+		for (int i = 0; i < players.size(); i++) {
+			Player p = players.get(i);
+			if (i<10) {
+				System.out.println((i+1) +":\t"+p);
+				
+			} else {
+				aRemover.add(p);
+			}
 		}
+		
+		players.removeAll(aRemover);
 	}
 	
 

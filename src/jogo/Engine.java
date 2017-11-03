@@ -76,6 +76,7 @@ public class Engine {
 			try {
 				ObjectInputStream in = new ObjectInputStream(new FileInputStream(fichTopTen));
 				tt = (TopTen) in.readObject();
+				in.close();
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

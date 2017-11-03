@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author "David Sousa-Rodrigues"
  *
  */
-public class Player implements Serializable {
+public class Player implements Serializable, Comparable<Player> {
 	/**
 	 * 
 	 */
@@ -54,6 +54,17 @@ public class Player implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	@Override
+	public int compareTo(Player o) {
+		int out =0;
+		if (getTentativas()==o.getTentativas()) {
+			out = getTempo()>o.getTempo()?1:-1;
+		} else {
+			out = getTentativas()-o.getTentativas();
+		}
+		return out;
 	}
 
 }
