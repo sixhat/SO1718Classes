@@ -17,6 +17,11 @@ public class Rot13 {
 		this.rotateBy = rotateBy;
 	}
 
+	/**
+	 * Encode a string... by rotateBy
+	 * @param str : The input string
+	 * @return The encoded string
+	 */
 	public String encode(String str) {
 		StringBuilder out = new StringBuilder();
 
@@ -35,6 +40,11 @@ public class Rot13 {
 
 	}
 
+	/**
+	 * Decode an encoded string....
+	 * @param str
+	 * @return The decoded string
+	 */
 	public String decode(String str) {
 		StringBuilder out = new StringBuilder();
 
