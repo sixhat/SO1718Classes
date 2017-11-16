@@ -1,4 +1,4 @@
-package week8;
+package week08;
 
 public class AppMulti {
  public static void main(String[] args) {

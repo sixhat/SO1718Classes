@@ -1,4 +1,4 @@
-package week8.rot;
+package week08.rot;
 
 import java.io.Serializable;
 

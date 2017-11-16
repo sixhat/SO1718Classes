@@ -1,4 +1,4 @@
-package week8;
+package week08;
 
 /**
  * Example of Threads doing their thing...
