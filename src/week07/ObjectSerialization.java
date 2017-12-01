@@ -32,15 +32,15 @@ public class ObjectSerialization implements Serializable {
 		ObjectSerialization objectToSendToDisk = new ObjectSerialization("David Sousa-Rodrigues");
 		System.out.println(String.format("%1$13s = %2$20s", "Before Saving", objectToSendToDisk));
 
-		try {
-
+		try (
+				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("ClassData.dat"));
+				ObjectInputStream in = new ObjectInputStream(new FileInputStream("ClassData.dat"));
+				) {
 			// let's write the object to file
-			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("ClassData.dat"));
 			out.writeObject(objectToSendToDisk);
-			out.close();
 
 			// Let's read the Object from file
-			ObjectInputStream in = new ObjectInputStream(new FileInputStream("ClassData.dat"));
+			
 			ObjectSerialization newObject = (ObjectSerialization) in.readObject();
 			System.out.println(String.format("%1$13s = %2$20s", "From File", newObject));
 			in.close();

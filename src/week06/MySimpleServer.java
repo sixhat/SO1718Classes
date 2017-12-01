@@ -9,9 +9,9 @@ import java.net.Socket;
 
 public class MySimpleServer {
 	public static void main(String[] args) {
-		ServerSocket serverSocket = null;
-		try {
-			serverSocket = new ServerSocket(6000);
+
+		try (ServerSocket serverSocket = new ServerSocket(6000);){
+			
 			
 			while (true) {
 				Socket session = serverSocket.accept();
@@ -21,7 +21,7 @@ public class MySimpleServer {
 				
 				String input=null;
 				while ((input = br.readLine()) != null) {
-//					System.out.println(input);
+
 					pw.println(input);	
 				} 
 				session.close();
@@ -30,14 +30,7 @@ public class MySimpleServer {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				serverSocket.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		} 
 		
 	}
 }

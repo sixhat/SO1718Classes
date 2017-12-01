@@ -4,7 +4,6 @@ import java.util.LinkedList;
 
 public class Station extends Thread {
 	private Street street;
-	private int npass;
 	private boolean open;
 
 	private LinkedList<Passenger> platform;
@@ -12,7 +11,6 @@ public class Station extends Thread {
 	
 	public Station(Street street) {
 		this.street = street;
-		this.npass = 0;
 		this.platform = new LinkedList<Passenger>();
 		this.open=true;
 	}
@@ -22,11 +20,10 @@ public class Station extends Thread {
 		notifyAll();
 	}
 	public synchronized Passenger getPassenger4Street() {
-		if (platform.isEmpty()) {
+		while (platform.isEmpty()) {
 			try {
 				wait();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -40,7 +37,6 @@ public class Station extends Thread {
 			try {
 				sleep(10);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

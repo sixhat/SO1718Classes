@@ -49,8 +49,6 @@ public class Engine {
 
 		int tentativa = -1;
 
-		// System.out.println("Adivinha o número?");
-
 		while (tentativa != numeroSecreto) {
 			tentativa = in.nextInt();
 			p1.incTentativas();
@@ -71,12 +69,10 @@ public class Engine {
 		System.out.println(p1);
 
 		File fichTopTen = new File("topten.top");
-			
+
 		if (fichTopTen.exists()) {
-			try {
-				ObjectInputStream in = new ObjectInputStream(new FileInputStream(fichTopTen));
-				tt = (TopTen) in.readObject();
-				in.close();
+			try (ObjectInputStream in2 = new ObjectInputStream(new FileInputStream(fichTopTen));){				
+				tt = (TopTen) in2.readObject();
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -87,30 +83,25 @@ public class Engine {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		} else {
 			tt = new TopTen();
 		}
-		
-		
+
 		tt.addPlayer(p1);
-		
+
 		tt.printSorted();
-		
-		try {
-			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fichTopTen));
+
+		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fichTopTen));) {
 			out.writeObject(tt);
-			out.close();
-			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		
+		}
+
 		in.close();
 		// Save Top 10
 	}

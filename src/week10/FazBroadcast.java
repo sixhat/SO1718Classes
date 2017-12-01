@@ -8,7 +8,7 @@ public class FazBroadcast {
 
 	private ArrayList<PrintWriter> canaisCliente;
 
-	public FazBroadcast(List canaisCliente2) {
+	public FazBroadcast(List<PrintWriter> canaisCliente2) {
 		this.canaisCliente = (ArrayList<PrintWriter>) canaisCliente2;
 	}
 	

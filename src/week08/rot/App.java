@@ -9,19 +9,16 @@ import java.io.ObjectOutputStream;
 
 public class App {
 	public static void main(String[] args) {
-		String [] ar = new String[2];
-		ar[0]="David";
-		ar[1]="SO";
+		String[] ar = new String[2];
+		ar[0] = "David";
+		ar[1] = "SO";
 		Dados d = new Dados(ar);
 		d.encriptar(5);
-		System.out.println(d.str[0]+ " "+d.str[1]);
-		
-		
-		try {
-			ObjectOutputStream outF = new ObjectOutputStream(new FileOutputStream("dadosRot.dat"));
+		System.out.println(d.str[0] + " " + d.str[1]);
+
+		try (ObjectOutputStream outF = new ObjectOutputStream(new FileOutputStream("dadosRot.dat"));) {
 			outF.writeObject(d);
-			outF.close();
-			
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -29,15 +26,11 @@ public class App {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		try {
-			ObjectInputStream inF = new ObjectInputStream(new FileInputStream("dadosRot.dat"));
+
+		try (ObjectInputStream inF = new ObjectInputStream(new FileInputStream("dadosRot.dat"));){
 			Dados nova = (Dados) inF.readObject();
 			nova.desencriptar(5);
-			System.out.println(nova.str[0]+ " "+nova.str[1]);
-			inF.close();
-			
+			System.out.println(nova.str[0] + " " + nova.str[1]);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,9 +40,7 @@ public class App {
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		
-		
+		}
+
 	}
 }

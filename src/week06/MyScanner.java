@@ -14,9 +14,8 @@ public class MyScanner {
 	
 	public static void main(String[] args) {		
 		
-		Scanner sc;
-		try {
-			sc = new Scanner(new File("myNumbers.txt"));
+		
+		try (Scanner sc = new Scanner(new File("myNumbers.txt"));){		
 			long sum=0;
 			
 			while (sc.hasNextLong()) {
