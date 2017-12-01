@@ -20,7 +20,6 @@ public class ThreadOuveClientes extends Thread {
 			try {
 				fz.envia(r.readLine());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			

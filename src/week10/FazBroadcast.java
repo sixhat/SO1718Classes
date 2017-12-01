@@ -1,20 +1,20 @@
 package week10;
 
 import java.io.PrintWriter;
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FazBroadcast {
 
-	private Vector<PrintWriter> canaisCliente;
+	private ArrayList<PrintWriter> canaisCliente;
 
-	public FazBroadcast(Vector<PrintWriter> canaisCliente) {
-		this.canaisCliente = canaisCliente;
+	public FazBroadcast(List canaisCliente2) {
+		this.canaisCliente = (ArrayList<PrintWriter>) canaisCliente2;
 	}
 	
 	public void envia(String msg) {
 		for (PrintWriter printWriter : canaisCliente) {
-			printWriter.println(msg);
+			printWriter.print(msg+"\n\r");
 			printWriter.flush();
 		}
 	}

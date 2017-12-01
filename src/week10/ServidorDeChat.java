@@ -6,18 +6,17 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class ServidorDeChat {
 	
 	private int portoOuvir;
-	private ServerSocket ss;
-	Vector<PrintWriter> canaisCliente;
+	ArrayList<PrintWriter> canaisCliente;
 	
 
 	public ServidorDeChat(int portoOuvir) {
 		this.portoOuvir = portoOuvir;
-		this.canaisCliente = new Vector<PrintWriter>();
+		this.canaisCliente = new ArrayList<>();
 	}
 	
 	public void executa() {
