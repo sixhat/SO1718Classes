@@ -25,7 +25,7 @@ public class Train extends Thread{
 			}
 			System.out.println("Train "+currentTrainNumber + " put "+numberOfPassengers+" on the Station");
 			
-			// We submitted all trains... we can return;
+
 			if (currentTrainNumber==numTrains) {
 				return;
 			}
